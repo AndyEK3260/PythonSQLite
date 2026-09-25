@@ -1,0 +1,43 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE IF NOT EXISTS AIRPORT (
+    AirportID INTEGER PRIMARY KEY,
+    AirportCode TEXT NOT NULL UNIQUE,
+    City TEXT NOT NULL,
+    Country TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS PILOT (
+    PilotID INTEGER PRIMARY KEY,
+    FullName TEXT NOT NULL,
+    LicenseNumber TEXT NOT NULL UNIQUE,
+    HireDate TEXT
+);
+
+CREATE TABLE IF NOT EXISTS STATUS (
+    StatusID INTEGER PRIMARY KEY,
+    StatusName TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS FLIGHT (
+    FlightID INTEGER PRIMARY KEY,
+    FlightNumber TEXT NOT NULL UNIQUE,
+    OriginAirportID INTEGER NOT NULL,
+    DestAirportID INTEGER NOT NULL,
+    PilotID INTEGER,
+    StatusID INTEGER NOT NULL,
+    DepartureTime TEXT,
+    ArrivalTime TEXT,
+
+    FOREIGN KEY (OriginAirportID)
+        REFERENCES AIRPORT(AirportID),
+
+    FOREIGN KEY (DestAirportID)
+        REFERENCES AIRPORT(AirportID),
+
+    FOREIGN KEY (PilotID)
+        REFERENCES PILOT(PilotID),
+
+    FOREIGN KEY (StatusID)
+        REFERENCES STATUS(StatusID)
+);
