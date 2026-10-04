@@ -4,9 +4,9 @@ This project is a Flight Management System developed using Python and SQLite.
 
 ## Requirements
 
-- Python 3
-- SQLite
-- GitHub Codespaces
+* Python 3
+* SQLite
+* GitHub Codespaces
 
 ## How to Run
 
@@ -31,10 +31,10 @@ The application provides the following functions:
 
 The application uses SQLite with the following tables:
 
-- AIRPORT
-- PILOT
-- STATUS
-- FLIGHT
+* AIRPORT
+* PILOT
+* STATUS
+* FLIGHT
 
 The SQLite database file is:
 
